@@ -41,7 +41,8 @@ const CreateProducto = () => {
     }
 
     const enviarDatos = async (e) => {
-        e.preventDefault()
+        e.preventDefault()            
+        
         await ServiceProducto.createProducto(producto)
 
     }

@@ -1,4 +1,3 @@
-import react from "react"
 import { Link } from "react-router-dom"
 
 const NavbarVendedor = () => {
@@ -14,8 +13,8 @@ const NavbarVendedor = () => {
                     <div className="navbar-nav">
                         <Link className="nav-item nav-link active" to="/">Home</Link>
                         <Link className="nav-item nav-link" to="/productos">Productos</Link>
-                        <a className="nav-item nav-link">Categorias</a>
-                        <a className="nav-item nav-link">Proveedores</a>
+                        <Link className="nav-item nav-link" to={"/categorias"}>Categorias</Link>
+                        <Link className="nav-item nav-link" to={"/proveedores"}>Proveedores</Link>
                         <a className="nav-item nav-link">Ordenes de compra</a>
                     </div>
                 </div>
