@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import "bootstrap/dist/css/bootstrap.min.css"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
-import NavbarVendedor from './components/menu/NavbarVendedor';
+import NavbarVendedor from "./components/menu/NavbarVendedor"
+
 import ListaProducto from "./components/producto/ListaProducto"
 import CreateProducto from "./components/producto/CreateProducto"
 import UpdateProducto from "./components/producto/UpdateProducto"
@@ -11,8 +12,7 @@ import ListaProveedor from "./components/proveedores/ListaProveedor"
 
 ReactDOM.render(
   <BrowserRouter>
-    <NavbarVendedor></NavbarVendedor>
-    <br></br>
+  <NavbarVendedor></NavbarVendedor>
     <div class="container">
       <Routes>
         <Route path="/productos/create" element={<CreateProducto />}></Route>

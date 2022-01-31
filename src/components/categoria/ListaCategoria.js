@@ -9,7 +9,7 @@ const ListaCategoria = () => {
     //funcion que retorna las categorias de la api
     const getCategorias = async () => {
         const data = await ServiceCategoria.getCategorias()
-        if (data != null) setCategorias(data)
+        if (data != null) setCategorias(data.contenido)
     }
 
     useEffect(() => {
@@ -21,7 +21,6 @@ const ListaCategoria = () => {
     return (
 
         <div>
-            {categorias.length > 0 ?
                 <div>
                     <div className="card">
                         <div className="card-body">
@@ -56,8 +55,7 @@ const ListaCategoria = () => {
 
                     </div>
                 </div>
-                : <h2>No hay categorias disponibles</h2>
-            }
+            
         </div>
     )
 

@@ -1,6 +1,6 @@
 import react from "react"
 
-const urlGetAll = "http://localhost:8080/retailBackend/proveedores"
+const urlGetAll = "https://retail-backend-drt.herokuapp.com/proveedores"
 
 
 

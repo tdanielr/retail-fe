@@ -1,12 +1,12 @@
-const urlGetAll = "http://localhost:8080/retailBackend/productos/"
+const urlGetAll = "https://retail-backend-drt.herokuapp.com/productos"
 
-    export const getProductos = async () => {
-     
+    export const getProductos = async (numeroPagina) => {
+     const urlNueva = urlGetAll+"?numeroPagina="+numeroPagina
         try {
             const respuesta = await fetch(urlGetAll)
-            const datos = await respuesta.text()
-            const datosJson = await JSON.parse(datos)
-            return datosJson
+            const datos = await respuesta.json()
+            
+            return datos
         } catch (error) {
             console.log(error)
         }
@@ -14,93 +14,67 @@ const urlGetAll = "http://localhost:8080/retailBackend/productos/"
     }
 
     export const createProducto = async (producto) => {
-        
-        const productoNuevo = {
-            "nombre" : producto.nombre,
-            "precio" : producto.precio,
-            "stock" : producto.stock,
-            "categoria" : {
-                "id" : 2
-            },
-            "proveedor" : {
-                "id" : 1
-            }
-        }
-        
+
         try {
+            console.log(producto)
+
             const respuesta = await fetch(urlGetAll, {
                 method:"POST",
-                body:JSON.stringify(productoNuevo),
+                body: JSON.stringify(producto),
                 headers:{
-                    'Accept': 'application/json, text/plain',
-                    'Content-Type': 'application/json;charset=UTF-8'}
-                
+                    'Content-Type': 'application/json'}
             }) 
-            const datos = await respuesta.text()
-            const datosJson = await JSON.parse(datos)
-            console.log(datosJson)
+            const datos = await respuesta.json()
+            console.log(datos)
+            return datos
+            
         } catch(error) {
             console.log(error)
         }
         
-
     }
 
     export const deleteProducto = async (id) => {
-        
+        console.log(urlGetAll+id)
         try {
             const respuesta = await fetch(urlGetAll+id, {
                 method:"DELETE"})
             const datos = await respuesta.text()
-            const datosJson = await JSON.parse(datos)
-            console.log(datosJson)
+            return datos
         } catch (error) {
             console.log(error)
         }
-
+        
     }
 
 
     export const getProductoById = async (id) => {
+    
         try {
             const respuesta = await fetch(urlGetAll+id, {
                 method:"GET"})
             const datos = await respuesta.text()
-            const datosJson = await JSON.parse(datos)
+            const datosJson = JSON.parse(datos)
             return datosJson
         } catch (error) {
             console.log(error)
         }
-        
+
     }
 
     export const updateProducto = async (producto) => {
         
-        const productoNuevo = {
-            "id" : producto.id,
-            "nombre" : producto.nombre,
-            "precio" : producto.precio,
-            "stock" : producto.stock,
-            "categoria" : {
-                "id" : 2
-            },
-            "proveedor" : {
-                "id" : 1
-            }
-        }
-        
         try {
             const respuesta = await fetch(urlGetAll, {
                 method:"PUT",
-                body:JSON.stringify(productoNuevo),
+                body:JSON.stringify(producto),
                 headers:{
                     'Accept': 'application/json, text/plain',
                     'Content-Type': 'application/json;charset=UTF-8'}
                 
             }) 
             const datos = await respuesta.text()
-            const datosJson = await JSON.parse(datos)
-            console.log(datosJson)
+            console.log(datos)
         } catch(error) {
             console.log(error)
         }

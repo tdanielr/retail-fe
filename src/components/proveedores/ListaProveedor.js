@@ -17,12 +17,10 @@ const ListaProveedor = () => {
         getProveedores()
     }, [])
 
-    console.log(proveedores)
-
     return (
         
         <div>
-            {proveedores.length > 0 ?
+            
                 <div>
                     <div className="card">
                         <div className="card-body">
@@ -61,8 +59,7 @@ const ListaProveedor = () => {
 
                     </div>
                 </div>
-                : <h2>No hay categorias disponibles</h2>
-            }
+              
         </div>
     )
 
